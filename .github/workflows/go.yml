@@ -32,10 +32,10 @@ jobs:
 
     - name: Build
       run: |
-        mkdir out_x86-64
-        go build -o out_x86-64/http-debug-server -v .
-        mkdir out_arm32
-        GOARCH=arm go build -o out_arm32/http-debug-server -v .
+        mkdir out_x86-64 out_arm32
+        cd cmd
+        go build -o ../out_x86-64/http-debug-server -v .
+        GOARCH=arm go build -o ../out_arm32/http-debug-server -v .
       
     - name: Upload binary x86-64
       uses: actions/upload-artifact@master
